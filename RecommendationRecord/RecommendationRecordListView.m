@@ -32,8 +32,8 @@
 
 -(void)didMoveToSuperview{
     
-    NSInteger index = self.contentOffset.x / self.frame.size.width;
-    self.currentIndex = index;
+//    NSInteger index = self.contentOffset.x / self.frame.size.width;
+//    self.currentIndex = ;
 }
 
 -(void)reloadView{
@@ -80,6 +80,12 @@
     if (_block) {
         _block(index);
     }
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    [self reloadView];
 }
 
 #pragma mark - getter

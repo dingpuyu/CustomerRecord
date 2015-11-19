@@ -129,11 +129,14 @@
         offsetX = _contentView.contentOffset.x + CGRectGetMaxX(selectedBtn.frame) - _contentView.contentOffset.x - self.frame.size.width;
     }
 //    当当前item不是最后一个时，把下一个也推出展示
-    if (currentIndex < _optionsArray.count - 1 && currentIndex > 1) {
+    if (currentIndex < _optionsArray.count - 1 && currentIndex > self.frame.size.width / OptionItemWidth - 1) {
         offsetX += OptionItemWidth;
     }
 //    NSLog(@"%f",offsetX);
-    self.contentView.contentOffset = CGPointMake(offsetX, 0);
+    [UIView animateWithDuration:0.1 animations:^{
+        self.contentView.contentOffset = CGPointMake(offsetX, 0);
+    }];
+    
 }
 
 @end
